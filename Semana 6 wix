@@ -1,0 +1,142 @@
+#include <iostream>
+using namespace std;
+
+int i, j, m, Opcion;
+double a, F;
+
+int main()
+{
+ cout<<"************* MENU ********** \n";
+ cout<<"[1] TABLA \n";
+ cout<<"[2] CALCULO \n";
+ cout<<"[3] CALCULO \n";
+ cout<<"[4] CALCULO \n";
+ cout<<"[5] CALCULO \n";
+ cout<<"***************************** \n";
+   cout<<"         INGRESE UNA OPCION <> 0"; cin>>Opcion;
+   
+   switch (Opcion)
+   {
+   	case 1:
+   	 {
+   	 	
+    int n;
+    float fuerza, suma = 0;
+
+    cout << "Ingrese el numero de fuerzas: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese la fuerza " << i + 1 << ": ";
+        cin >> fuerza;
+        suma += fuerza;
+    }
+
+    cout << "La fuerza resultante es: " << suma << " N" << endl;
+    return 0;
+
+
+	 }; break;
+	 
+	case 2:
+   	 {
+   	int n;
+    float fuerza, distancia, momentoTotal = 0;
+
+    cout << "Ingrese el numero de fuerzas: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese la fuerza " << i + 1 << " (N): ";
+        cin >> fuerza;
+        cout << "Ingrese la distancia " << i + 1 << " (m): ";
+        cin >> distancia;
+        momentoTotal += fuerza * distancia;
+    }
+
+    cout << "El momento total respecto al punto O es: " << momentoTotal << " Nm" << endl;
+    return 0;
+   	   
+	 }; break;
+	
+	case 3:
+   	 {
+   	int n;
+    float fuerza, distancia, sumaMomentos = 0, sumaFuerzas = 0;
+
+    cout << "Ingrese el numero de fuerzas: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese la fuerza " << i + 1 << " (N): ";
+        cin >> fuerza;
+        cout << "Ingrese la distancia " << i + 1 << " (m): ";
+        cin >> distancia;
+        sumaMomentos += fuerza * distancia;
+        sumaFuerzas += fuerza;
+    }
+
+    float centroide = sumaMomentos / sumaFuerzas;
+    cout << "La posicion del centroide es: " << centroide << " m" << endl;
+    return 0;
+   	   
+	 }; break;
+	 
+	case 4:
+   	 {
+   	int n;
+    float L, w, dx, fuerzaTotal = 0;
+
+    cout << "Ingrese la longitud total (m): ";
+    cin >> L;
+    cout << "Ingrese la carga distribuida (N/m): ";
+    cin >> w;
+    cout << "Ingrese el numero de segmentos: ";
+    cin >> n;
+
+    dx = L / n;
+
+    for (int i = 0; i < n; i++) {
+        fuerzaTotal += w * dx;
+    }
+
+    cout << "La fuerza equivalente es: " << fuerzaTotal << " N" << endl;
+    return 0;
+   	   
+	 }; break;
+	 
+	case 5:
+   	 {
+   	int n;
+    float L, posicion, carga, sumaMomentos = 0, sumaFuerzas = 0;
+
+    cout << "Ingrese la longitud de la viga (m): ";
+    cin >> L;
+    cout << "Ingrese el numero de cargas puntuales: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese la magnitud de la carga " << i + 1 << " (N): ";
+        cin >> carga;
+        cout << "Ingrese la posicion de la carga " << i + 1 << " (m): ";
+        cin >> posicion;
+        sumaMomentos += carga * posicion;
+        sumaFuerzas += carga;
+    }
+
+    float RB = sumaMomentos / L;
+    float RA = sumaFuerzas - RB;
+
+    cout << "La reaccion en A es: " << RA << " N" << endl;
+    cout << "La reaccion en B es: " << RB << " N" << endl;
+    return 0;
+   	   
+	 }; break;		
+		
+	
+	 
+	  
+   }// fin del switch
+   
+   return 0;
+}// fin del programa
